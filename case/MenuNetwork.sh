@@ -191,7 +191,28 @@ case $op in
    ;;
    
    6)
-   ;;
+     echo "Eligió Mapear una Red"
+     sleep 2
+     echo "Escoja uno de los siguientes estados: "
+     echo "1) Scan de todos los puertos abiertos"
+     echo "2) Ping y Scan para descubrir Hosts"
+     echo "3) Scan puertos abiertos y versiones de servicio"
+     echo "4) Scan de puertos y servicios falsificando MAC"
+     echo "5) Scan de puertos y descubriendo SO del Host"
+     read -n1 -p "Ingrese opción que prefiera: " o6
+     read -p "Ingrese IP o Dominio a Escanear: " nmapDom
+        case $o6 in
+        1)
+        echo  
+        ;;
+
+   echo "scan de todos los puertos abiertos " nmap 192.168.0.0/24
+   echo "ping scan, descubrir host " nmap -sS -sn 192.168.0.0/24
+   echo "scan puertos open y versiones de servicios" nmap -sS -sV 192.168.0.0/24
+   echo "scan de puertos y servicios falsificando MAC " nmap --spoof-mac 00:11:22:33:44 -sS -sV 192.168.0.0/24
+   echo "scan averiguando el SO del host" nmap -sS -O 
+        esac
+        ;;
    
    7)
    ;; 
